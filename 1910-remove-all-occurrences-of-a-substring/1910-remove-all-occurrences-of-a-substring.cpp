@@ -2,8 +2,7 @@ class Solution {
 public:
     string removeOccurrences(string s, string part) {
         while(s.find(part) != string::npos){
-            int pos=s.find(part);
-            s=s.substr(0,pos) + s.substr(pos + part.size());
+            s=s.substr(0,s.find(part)) + s.substr(s.find(part) + part.size());
         }
         return s;
     }
