@@ -7,7 +7,6 @@ public:
         text+=" ";
         bool flag=true;int c=0;
         for(int i=0;i<text.size();i++){
-            //cout<<freq[text[i]]<<endl;
             if(text[i] == ' '){
                 if(flag == true)
                 c++;
