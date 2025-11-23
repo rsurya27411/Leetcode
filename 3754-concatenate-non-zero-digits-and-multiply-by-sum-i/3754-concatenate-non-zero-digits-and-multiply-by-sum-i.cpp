@@ -1,6 +1,8 @@
 class Solution {
 public:
     long long sumAndMultiply(int n) {
+        if(n==0)
+        return 0;
         string s=to_string(n);
         string x="";
         long long sum=0;
@@ -9,7 +11,7 @@ public:
             x+=s[i];
             sum+=s[i]-'0';
         }
-        cout<<sum;
+        //cout<<sum;
         int N=stol(x);
         return (N*sum);
     }
