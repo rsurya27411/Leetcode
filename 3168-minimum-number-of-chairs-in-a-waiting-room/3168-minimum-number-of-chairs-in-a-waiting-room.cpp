@@ -1,19 +1,17 @@
 class Solution {
 public:
     int minimumChairs(string s) {
-    int c=1,maxi=0;
- for(int i=0;i<s.size()-1;i++)
-     {
- if(s[i]=='E'&&s[i+1]=='E')
-    c++;
-else if(s[i]=='L'&&s[i+1]=='L')
-    c++;
-    else
-    {
-    maxi=max(maxi,c);
-    c=1;
-    }
- }
-    return max(c,maxi);
+        int chairs=1,per_ins=0;
+        for(int i=0;i<s.size();i++){
+            if(chairs-per_ins < 0)
+            chairs++;
+            if(chairs == per_ins && s[i] == 'E')
+            chairs++;
+            if(s[i] == 'E')
+            per_ins++;
+            if(s[i] == 'L')
+            per_ins--;
+        }
+        return chairs;
     }
 };
