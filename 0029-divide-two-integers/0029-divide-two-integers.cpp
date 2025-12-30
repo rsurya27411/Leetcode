@@ -1,8 +1,8 @@
 class Solution {
 public:
     int divide(int dividend, int divisor) {
-long long a=dividend,b=divisor;
-long long t=a,s=b;
+    long long a=dividend,b=divisor;
+    long long t=a,s=b;
     if(a==-2147483648&&b==-1)
     return 2147483647;
     if(b==1)
