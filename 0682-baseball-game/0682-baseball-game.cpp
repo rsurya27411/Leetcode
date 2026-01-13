@@ -9,7 +9,6 @@ public:
             ans.push_back(ans[ans.size()-1] * 2);
             else if(ops[i] == "+")
             ans.push_back(ans[ans.size()-1] + ans[ans.size()-2]);
-            //if(stoi(ops[i]) >= -30000 && stoi(ops[i]) <= 30000)
             else
             ans.push_back(stoi(ops[i]));
         }
