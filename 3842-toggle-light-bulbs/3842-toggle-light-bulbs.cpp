@@ -12,8 +12,10 @@ public:
         }
 
         for(int i=0;i<bulbs.size();i++){
-            if(freq[bulbs[i]] == 1)
-            ans.push_back(bulbs[i]);
+            if(freq[bulbs[i]] == 1){
+                ans.push_back(bulbs[i]);
+                freq[bulbs[i]] = 0;
+            }
         }
         sort(ans.begin(),ans.end());
         return ans;
