@@ -7,7 +7,7 @@ public:
     return c<=threshold ? true:false;
     }
     int smallestDivisor(vector<int>& nums, int threshold) {
-        int st=*min_element(nums.begin(),nums.end());
+        int st=1;
         int end=*max_element(nums.begin(),nums.end()),ans=0;
         while(st<=end){
             int mid=st+(end-st)/2;
