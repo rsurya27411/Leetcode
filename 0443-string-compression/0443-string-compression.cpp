@@ -17,11 +17,12 @@ public:
         str+=chars[i];
         if(c!=1)
         str+=to_string(c);
-        for(int i=0;i<chars.size();i++)
+        int k=0;
+        while(k<str.size())
         {
-            chars[i]=str[i];
+            chars[k]=str[k];
+            k++;
         }
-        cout<<str;
         return str.size();
     }
 };
