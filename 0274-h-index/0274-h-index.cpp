@@ -1,7 +1,7 @@
 class Solution {
 public:
     int hIndex(vector<int>& citations) {
-    int ans=1;
+    int ans=0;
     int end=*max_element(citations.begin(),citations.end());
     for(int i=1;i<=end;i++){
         int c=0;
