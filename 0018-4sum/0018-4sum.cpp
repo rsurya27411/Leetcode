@@ -1,30 +1,25 @@
 class Solution {
 public:
     vector<vector<int>> fourSum(vector<int>& nums, int target) {
-        vector<vector<int>> ans;
-        sort(nums.begin(),nums.end());
+        
+        set<vector<int>> st;
         for(int i=0;i<nums.size();i++){
-            if(i>0 && nums[i] == nums[i-1])continue;
-            for(int j=i+1;j<nums.size();){
-                //if(j<nums.size()-1 && nums[j] == nums[j-1])continue;
-                if(j<nums.size() && nums[j] == nums[j-1])continue;
-                    int p=j+1,q=nums.size()-1;
-                    while(p<q){
-                        int sum=nums[i]+nums[j]+nums[p]+nums[q];
-                        if(sum<target)
-                        p++;
-                        else if(sum>target)
-                        q--;
-                        else{
-                            ans.push_back({nums[i],nums[j],nums[p],nums[q]});
-                            p++;q--;
-                            while(p<q && nums[p] == nums[p-1])p++;
-                        }
+            for(int j=i+1;j<nums.size();j++){
+                set<long long> s;
+                for(int k=j+1;k<nums.size();k++){
+                    long long sum=nums[i]+nums[j];
+                    sum+=nums[k];
+                    long long remain=(long long)target-sum;
+                    if(s.find(remain) != s.end()){
+                        vector<int> temp={nums[i],nums[j],nums[k],(int)remain};
+                        sort(temp.begin(),temp.end());
+                        st.insert(temp);
                     }
-                    j++;
-                    while(j<nums.size()-1 && nums[j] == nums[j-1])j++;
+                    s.insert(nums[k]);
                 }
+            }
         }
+        vector<vector<int>> ans(st.begin(),st.end());
         return ans;
     }
 };
