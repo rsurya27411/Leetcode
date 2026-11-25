@@ -2,20 +2,24 @@ class Solution {
 public:
     int countKConstraintSubstrings(string s, int k) {
         int c=0;
-        for(int i=0;i<s.size();i++){
-            int z=0,o=0;
-            for(int j=i;j<s.size();j++){
-                if(s[j] == '0')
+        int z=0,o=0,l=0,r=0;
+        while(r<s.size()){
+                if(s[r] == '0')
                 z++;
-                if(s[j] == '1')
+                if(s[r] == '1')
                 o++;
                 if(z > k && o > k){
-                    break;
+                    while(z>k && o>k){
+                        if(s[l] == '0')
+                        z--;
+                        if(s[l] == '1')
+                        o--;
+                        l++;
+                    }
                 }
-                if(z <= k || o <= k){
-                    c++;
-                }
-            }
+            if(z <= k || o <= k)
+            c+=(r-l+1);
+            r++;
         }
         return c;
     }
